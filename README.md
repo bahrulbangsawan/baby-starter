@@ -271,7 +271,7 @@ echo "   ANTHROPIC_API_KEY = [HIDDEN FOR SECURITY]"
 
 3. **Install the Claude Code CLI**:
 ```bash
-curl -fsSL https://claude.ai/install.sh | sh
+npm install -g @anthropic-ai/claude-code
 ```
 
 4. **Configure your API key** by editing `set.sh` and replacing `YOUR_API_KEY_HERE` with your actual Anthropic API key.
