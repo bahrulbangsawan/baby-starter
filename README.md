@@ -234,14 +234,38 @@ For enhanced development assistance using the glm-4.5 model with Claude Code, fo
 1. **The setup script is provided** in `set.sh`:
 ```bash
 #!/bin/bash
-export ANTHROPIC_API_KEY="your-claude-api-key-here"
+
+# Unset old environment variable if it exists
+unset ANTHROPIC_AUTH_TOKEN
+
+# Set correct environment variables
+export ANTHROPIC_API_KEY="YOUR_API_KEY_HERE"
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+
+# Display confirmation (hiding sensitive key)
+echo "✅ Environment variables set:"
+echo "   ANTHROPIC_BASE_URL = $ANTHROPIC_BASE_URL"
+echo "   ANTHROPIC_API_KEY = [HIDDEN FOR SECURITY]"
 ```
 
 2. **Claude settings are configured** in `.claude/settings.json`:
 ```json
 {
-  "model": "glm-4.5",
-  "dangerous_skip_permissions": true
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
+    "ANTHROPIC_MODEL": "glm-4.5"
+  },
+  "models": [
+    "glm-4.5",
+    "glm-4.5-air",
+    "glm-4.5-airx",
+    "glm-4.5-flash",
+    "glm-4.5-x",
+    "glm-4",
+    "claude-3-haiku-20240307",
+    "claude-3-sonnet-20240229",
+    "claude-3-opus-20240229"
+  ]
 }
 ```
 
@@ -250,7 +274,7 @@ export ANTHROPIC_API_KEY="your-claude-api-key-here"
 curl -fsSL https://claude.ai/install.sh | sh
 ```
 
-4. **Configure your API key** by editing `set.sh` and replacing `your-claude-api-key-here` with your actual Anthropic API key.
+4. **Configure your API key** by editing `set.sh` and replacing `YOUR_API_KEY_HERE` with your actual Anthropic API key.
 
 5. **Run `source set.sh`** to load your API key into the environment:
 ```bash
