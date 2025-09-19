@@ -1,13 +1,13 @@
 #!/bin/bash
+
+# Unset old environment variable if it exists
+unset ANTHROPIC_AUTH_TOKEN
+
+# Set correct environment variables
 export ANTHROPIC_API_KEY="YOUR_API_KEY"
-export ANTHROPIC_API_URL="https://api.anthropic.com"
-export ANTHROPIC_API_VERSION="2023-06-01"
-export ANTHROPIC_MAX_TOKENS="4096"
-export ANTHROPIC_TEMPERATURE="0.7"
-export ANTHROPIC_TOP_P="1.0"
-export ANTHROPIC_MODEL="glm-4.5"
-export ANTHROPIC_STREAM="true"
-export ANTHROPIC_TIMEOUT="30"
-export ANTHROPIC_RETRY="3"
-export ANTHROPIC_VERBOSE="false"
-export ANTHROPIC_DANGEROUS_SKIP_PERMISSIONS="true"
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+
+# Display confirmation (hiding sensitive key)
+echo "✅ Environment variables set:"
+echo "   ANTHROPIC_BASE_URL = $ANTHROPIC_BASE_URL"
+echo "   ANTHROPIC_API_KEY = [HIDDEN FOR SECURITY]"
