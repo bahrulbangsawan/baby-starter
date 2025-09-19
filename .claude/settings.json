@@ -1,0 +1,4 @@
+{
+  "model": "glm-4.5",
+  "dangerous_skip_permissions": true
+}

@@ -231,34 +231,63 @@ For enhanced development assistance using the glm-4.5 model with Claude Code, fo
 
 ### Setup
 
-1. **Create a file named `set.sh`** and put your API key inside it:
+1. **The setup script is provided** in `set.sh`:
 ```bash
 #!/bin/bash
 export ANTHROPIC_API_KEY="your-claude-api-key-here"
 ```
 
-2. **Install the Claude Code CLI**:
+2. **Claude settings are configured** in `.claude/settings.json`:
+```json
+{
+  "model": "glm-4.5",
+  "dangerous_skip_permissions": true
+}
+```
+
+3. **Install the Claude Code CLI**:
 ```bash
 curl -fsSL https://claude.ai/install.sh | sh
 ```
 
-3. **Run `source set.sh`** to load your API key into the environment:
+4. **Configure your API key** by editing `set.sh` and replacing `your-claude-api-key-here` with your actual Anthropic API key.
+
+5. **Run `source set.sh`** to load your API key into the environment:
 ```bash
 source set.sh
 ```
 
-4. **Start the CLI with**:
+6. **Start the CLI with**:
 ```bash
 claude --dangerous-skip-permissions
 ```
 
-### Benefits
+### Features with glm-4.5
 
-- **Code-aware assistance**: Claude understands your codebase structure
-- **File operations**: Direct file editing and creation
-- **Search capabilities**: Find and understand code patterns
-- **Error debugging**: Intelligent error resolution suggestions
-- **Architecture guidance**: Best practices and code improvement recommendations
+- **Enhanced code understanding**: Deep comprehension of your Next.js boilerplate structure
+- **Intelligent file operations**: Seamless editing and creation of TypeScript/React files
+- **Advanced search capabilities**: Find and understand complex code patterns across your codebase
+- **Smart error debugging**: Intelligent resolution suggestions for Next.js, Drizzle, and BetterAuth issues
+- **Architecture guidance**: Best practices for scaling your production application
+- **Component generation**: Automatic creation of shadcn/ui components with proper TypeScript types
+- **Database schema assistance**: Help with Drizzle migrations and PostgreSQL optimizations
+
+### Usage Examples
+
+```bash
+# Start Claude with the custom model
+source set.sh
+claude
+
+# Ask Claude to analyze your codebase
+"Analyze my Next.js app structure and suggest improvements"
+
+# Generate new components
+"Create a new shadcn/ui component for data visualization"
+
+# Debug issues
+"Help me fix this Drizzle migration error"
+```
 
 ## Available Routes
 
