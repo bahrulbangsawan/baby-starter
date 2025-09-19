@@ -4,24 +4,24 @@ A modern, production-ready boilerplate built with Next.js 15+, featuring a compr
 
 ## Tech Stack
 
-- **Framework**: Next.js 15+ with App Router and Turbopack
-- **Database**: Drizzle ORM + PostgreSQL (Neon-ready)
-- **Authentication**: BetterAuth with database session strategy
-- **UI Components**: shadcn/ui with Tailwind CSS v4
-- **State Management**: TanStack Query for server state
-- **Data Tables**: TanStack Table with React Virtual
-- **Search**: Typesense with server proxy
-- **AI Integration**: Vercel AI SDK with OpenAI
-- **Maps**: Leaflet with client-side rendering
-- **Development**: TypeScript, ESLint, pnpm
+- **Framework**: [Next.js 15+](https://nextjs.org/) with App Router and Turbopack
+- **Database**: [Drizzle ORM](https://orm.drizzle.team/) + [PostgreSQL](https://www.postgresql.org/) (Neon-ready)
+- **Authentication**: [BetterAuth](https://better-auth.com/) with database session strategy
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) with [Tailwind CSS v4](https://tailwindcss.com/)
+- **State Management**: [TanStack Query](https://tanstack.com/query/latest) for server state
+- **Data Tables**: [TanStack Table](https://tanstack.com/table/latest) with [React Virtual](https://tanstack.com/virtual/latest)
+- **Search**: [Typesense](https://typesense.org/) with server proxy
+- **AI Integration**: [Vercel AI SDK](https://ai-sdk.vercel.app/) with [OpenAI](https://openai.com/)
+- **Maps**: [Leaflet](https://leafletjs.com/) with client-side rendering
+- **Development**: [TypeScript](https://www.typescriptlang.org/), [ESLint](https://eslint.org/), [pnpm](https://pnpm.io/)
 
 ## Quickstart
 
 ### Prerequisites
 
-- Node.js 18+
-- PostgreSQL database (local or cloud like Neon)
-- pnpm package manager
+- [Node.js 18+](https://nodejs.org/) (required for Claude Code and Next.js)
+- [PostgreSQL](https://www.postgresql.org/) database (local or cloud like [Neon](https://neon.tech/))
+- [pnpm](https://pnpm.io/) package manager
 
 ### Installation
 
@@ -156,7 +156,7 @@ curl -X POST "http://localhost:8108/collections" \
 
 ### Cloud Deployment
 
-For production, use [Typesense Cloud](https://cloud.typesense.org/) or self-host:
+For production, use [Typesense Cloud](https://cloud.typesense.org/) or self-host on [AWS](https://aws.amazon.com/)/[GCP](https://cloud.google.com/)/[Azure](https://azure.microsoft.com/):
 
 1. **Update environment variables**:
 ```env
@@ -248,7 +248,20 @@ echo "   ANTHROPIC_BASE_URL = $ANTHROPIC_BASE_URL"
 echo "   ANTHROPIC_API_KEY = [HIDDEN FOR SECURITY]"
 ```
 
-2. **Claude settings are configured** in `.claude/settings.json`:
+2. **Ensure Node.js 18+ is installed** (required for Claude Code):
+```bash
+# Check Node.js version
+node --version
+
+# If Node.js is not installed or version < 18:
+# Using nvm (recommended):
+nvm install 18
+nvm use 18
+
+# Or download from https://nodejs.org/
+```
+
+3. **Claude settings are configured** in `.claude/settings.json`:
 ```json
 {
   "env": {
@@ -269,19 +282,19 @@ echo "   ANTHROPIC_API_KEY = [HIDDEN FOR SECURITY]"
 }
 ```
 
-3. **Install the Claude Code CLI**:
+4. **Install the Claude Code CLI**:
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-4. **Configure your API key** by editing `set.sh` and replacing `YOUR_API_KEY_HERE` with your actual Anthropic API key.
+5. **Configure your API key** by editing `set.sh` and replacing `YOUR_API_KEY_HERE` with your actual Anthropic API key.
 
-5. **Run `source set.sh`** to load your API key into the environment:
+6. **Run `source set.sh`** to load your API key into the environment:
 ```bash
 source set.sh
 ```
 
-6. **Start the CLI with**:
+7. **Start the CLI with**:
 ```bash
 claude --dangerous-skip-permissions
 ```
@@ -378,7 +391,7 @@ pnpm db:migrate       # Alternative migration command
 
 ### Vercel (Recommended)
 
-1. **Connect repository** to Vercel
+1. **Connect repository** to [Vercel](https://vercel.com/)
 2. **Configure environment variables** in Vercel dashboard
 3. **Deploy automatically** on push
 
@@ -390,6 +403,12 @@ Ensure you have:
 - All environment variables set
 - Build command: `pnpm build`
 - Start command: `pnpm start`
+
+**Platform Options:**
+- [Netlify](https://www.netlify.com/) - Static site hosting with serverless functions
+- [Railway](https://railway.app/) - Full-stack deployment with database
+- [Render](https://render.com/) - Web services and static sites
+- [Digital Ocean App Platform](https://www.digitalocean.com/products/app-platform) - Cloud application hosting
 
 ## Project Structure
 
